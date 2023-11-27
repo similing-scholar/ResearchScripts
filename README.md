@@ -11,11 +11,13 @@ tips：每个代码都有详细的注释，记录我的学习与思考过程。
 - `CameraSaveImage.py` opencv调用usb摄像头定时保存图像。
 - `image_crop.py` steamlit可视化web进行图像裁剪并分别保存。
 - `img_add_text.py` PIL将图片名称添加到图片左上角。
+- `Image_Data_Extraction.py` opencv提取文献图片中的曲线数据。
 
 
 ## Event
 - `Click_GUI.py` tkinter可视化窗口调用鼠标同时点击两个软件的开始按钮。
-- `img2new_folder.py`os将根目录文件夹的子文件夹下的所有图片复制到新的文件夹中。
+- `files_copy.py`os将根目录文件夹的子文件夹下的所有指定格式文件复制到新的文件夹中（建立对应的子文件夹）。
+- `files_remove.py`os将根目录文件夹的子文件夹下的所有指定格式文件删除。
 
 ## Computation
 - `img_correlation.py` 图像相邻像素相关性计算。

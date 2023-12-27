@@ -78,6 +78,28 @@ def extract_sparse_points(img):
     return sparse_points
 
 
+def interp_x(sparse_points, height):
+    # 找到第一列的最大值和最小值
+    sparse_points = sparse_points.astype(float)
+    min_val = np.min(sparse_points[:, 0] )
+    max_val = np.max(sparse_points[:, 0] )
+
+    # 计算最大值和最小值的差值
+    diff = max_val - min_val
+
+    # 对第一列进行操作：减去最小值并除以差值
+    sparse_points[:, 0] = (sparse_points[:, 0] - min_val) / diff
+
+    sparse_points[:, 1] = 1 - sparse_points[:, 1]/height
+
+    # 新的 x 值范围，要生成 101 个点
+    new_x = np.linspace(0, 1, 101)
+
+    # 使用 interp 函数进行线性插值
+    new_y = np.interp(new_x, sparse_points[:, 0], sparse_points[:, 1])
+    return new_y
+
+
 if __name__ == '__main__':
     # 1. 读取原始图片做分割
     image_path = 'C:/Users/JiaPeng/Desktop/test/Image 3.png'
@@ -86,32 +108,18 @@ if __name__ == '__main__':
     # get_box_coordinates(img, save_folder)
 
     # 2. 读取分割后的图片做稀疏取点
-    height = 62
-    width = 74
-    num = 195  # 一共有195张图片
-    df = pd.DataFrame({'wave_length': np.arange(0, width)})
+    df = pd.DataFrame({'wave_length_index': np.linspace(0, 1, 101)})
     # 获取文件夹中所有PNG图片的文件名
     png_files = [f for f in os.listdir(save_folder) if f.endswith('.png')]
     # 遍历每个PNG文件
-    for i, png_file in enumerate(png_files):
+    for png_file in png_files:
         # 读取PNG文件
         png_path = os.path.join(save_folder, png_file)
         img = get_image(png_path)
         # 提取稀疏点
         sparse_points = extract_sparse_points(img)
-        x = np.arange(0, width)  # x坐标
-        y = (width-sparse_points[:, 1])/height  # 将y坐标归一化
-        # 如果y的长度大于x的长度，则截断y
-        if len(y) > len(x):
-            y = y[:len(x)]
-        # 如果x的长度大于y的长度，则补最后一个y值
-        elif len(x) > len(y):
-            y = np.append(y, y[-1])
-        # 绘制稀疏点
-        # plt.plot(x, y, label=png_file)
-        # plt.legend()
-        # plt.show()
-        # 将稀疏点添加到数组中
-        df = pd.concat([df, pd.DataFrame({f'{png_file}': y})], axis=1)
-    df.to_excel(os.path.join(save_folder, 'data_extraction.xlsx'), index=False)
+        new_y = interp_x(sparse_points, img.shape[0])
+        # 创建新的列
+        df[png_file] = new_y
+    df.to_excel(os.path.join(save_folder, 'data_extraction.xlsx'), sheet_name='Transmittance', index=False)
 

@@ -1,5 +1,6 @@
 import tkinter as tk
 import pyautogui
+import time
 
 
 # 创建一个名为root的Tk对象

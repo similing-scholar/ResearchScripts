@@ -8,7 +8,7 @@ import os
 @st.cache_data(experimental_allow_widgets=True)  # 缓存加载数据
 def input_string(label):
     '''
-    :param label: string,‘输入保存文件夹的绝对路径，例如：**C:\\Users\\JiaPeng\\Desktop\\test**’
+    :param label: string,‘输入保存文件夹的绝对路径，例如：**C:\\Users\\JiaPeng\\Desktop\\1**’
     :return: st.text_input
     '''
     return st.text_input(label)
@@ -155,8 +155,8 @@ def block_img(img, file_name):
         img_names.append(name)
 
     # 设置保存目录
-    # save_dir = input_string("输入保存文件夹的绝对路径，例如：**C:\\Users\\JiaPeng\\Desktop\\test**")
-    save_dir = st.text_input("输入保存文件夹的绝对路径，例如：**C:\\Users\\JiaPeng\\Desktop\\test**")
+    # save_dir = input_string("输入保存文件夹的绝对路径，例如：**C:\\Users\\JiaPeng\\Desktop\\1**")
+    save_dir = st.text_input("输入保存文件夹的绝对路径，例如：**C:\\Users\\JiaPeng\\Desktop\\1**")
 
     # 设置一个保存图像的点击按钮
     if st.button("点击保存图像"):

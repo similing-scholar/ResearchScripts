@@ -32,7 +32,7 @@ if __name__ == "__main__":
                     "20231207g-F-m1000r60T", "20231207g-F-m1500r60T", "20231207g-F-m2000r60T",
                     "20231207g-U-m1000r60T", "20231207g-U-m1500r60T", "20231207g-U-m2000r60T",
                     ]
-    base_folder = "C:/Users/JiaPeng/desktop/test/文件夹"
+    base_folder = "C:/Users/JiaPeng/desktop/1/文件夹"
     for folder_name in folder_names:
         full_folder_path = os.path.join(base_folder, folder_name)
         make_dir(full_folder_path)

@@ -12,9 +12,9 @@ def parameter_configuration():
     # ---mode选择确定path---
     mode = st.radio('选择处理模式', ['模式一：处理所有子文件夹内的所有文件', '模式二：处理单个文件夹下的所有文件'], index=1)
     if mode == '模式一：处理所有子文件夹内的所有文件':
-        png_farther_folder = st.text_input("输入所在文件夹的上一级目录的绝对路径，例如：**C:\\Users\\JiaPeng\\Desktop\\test**")
+        png_farther_folder = st.text_input("输入所在文件夹的上一级目录的绝对路径，例如：**C:\\Users\\JiaPeng\\Desktop\\1**")
     elif mode == '模式二：处理单个文件夹下的所有文件':
-        png_folder = st.text_input("输入所在文件夹的绝对路径，例如：**C:\\Users\\JiaPeng\\Desktop\\test\\2023**")
+        png_folder = st.text_input("输入所在文件夹的绝对路径，例如：**C:\\Users\\JiaPeng\\Desktop\\1\\2023**")
 
     # ---文件后缀名---
     extension = st.text_input('填写文件后缀名，例如：**.png**')

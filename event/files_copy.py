@@ -58,7 +58,7 @@ def parameter_configuration():
     # ---mode选择确定path---
     mode = st.radio('选择处理模式', ['模式一：处理所有子文件夹内的所有文件'], index=0)
     if mode == '模式一：处理所有子文件夹内的所有文件':
-        farther_folder = st.text_input("输入所在文件夹的上一级目录的绝对路径，例如：**C:\\Users\\JiaPeng\\Desktop\\test**")
+        farther_folder = st.text_input("输入所在文件夹的上一级目录的绝对路径，例如：**C:\\Users\\JiaPeng\\Desktop\\1**")
 
     # ---文件后缀名---
     extension_check = st.checkbox('是否通过文件后缀名筛选', value=True)
@@ -68,7 +68,7 @@ def parameter_configuration():
         extension = ''
 
     # ---复制模式选择---
-    target_folder = st.text_input("输入目标文件夹的绝对路径，例如：**C:\\Users\\JiaPeng\\Desktop\\test\\2023**")
+    target_folder = st.text_input("输入目标文件夹的绝对路径，例如：**C:\\Users\\JiaPeng\\Desktop\\1\\2023**")
     subfolder_check = st.checkbox('是否在目标文件夹下创建相应的子文件夹', value=False)
 
     # ---按mode执行---

@@ -103,7 +103,7 @@ def interp_x(sparse_points, height):
 if __name__ == '__main__':
     # 1. 读取原始图片做分割
     image_path = 'C:/Users/JiaPeng/Desktop/test/Image 3.png'
-    save_folder = 'C:/Users/JiaPeng/Desktop/test/crop'
+    save_folder = 'C:/Users/JiaPeng/Desktop/1/crop'
     # img = get_image(image_path)
     # get_box_coordinates(img, save_folder)
 

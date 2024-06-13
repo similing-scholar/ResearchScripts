@@ -18,16 +18,22 @@ def main():
     camera = cv2.VideoCapture(0)
 
     # 设置定时拍照间隔（秒）
-    interval = 60
+    interval = 0.01  # 【修改】
+    elapsed_time = 0  # 已经过去的时间
 
     while True:
         # 获取当前时间
         current_time = time.strftime("%Y-%m-%d_%H-%M-%S", time.localtime())
+        elapsed_minutes = elapsed_time // 60
+        elapsed_seconds = elapsed_time % 60
 
         # 生成保存路径
-        main_path = "C:/Users/JiaPeng/Desktop/test/"
-        pic_name = f"image_{current_time}.jpg"
+        main_path = "C:/Users/JiaPeng/Desktop/test/image/"  # 【修改】
+        pic_name = f"{elapsed_minutes}min_{elapsed_seconds}s_{current_time}.jpg"
         save_path = main_path + pic_name
+
+        # 更新已经过去的时间
+        elapsed_time += interval
 
         # 拍照并保存图片
         capture_image(camera, save_path)

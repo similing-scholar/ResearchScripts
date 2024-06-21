@@ -5,7 +5,7 @@ import pyperclip
 
 
 root = tk.Tk()
-root.title("获取鼠标位置和单击屏幕坐标")
+root.title("软件联用脚本v1--习武的书生")
 # 用于控制是否继续获取鼠标位置的标志
 get_position_flag = False
 get_position_id = None
@@ -16,7 +16,7 @@ def get_mouse_position():
     if get_position_flag:
         x, y = pyautogui.position()
         current_color = pyautogui.pixel(x, y)
-        position_label.config(text=f"位置:({x}, {y}), color: {current_color}")
+        position_label.config(text=f"坐标:({x}, {y}), 颜色: {current_color}")
         # 将鼠标位置复制到剪贴板
 
         coordinates = f"{x}, {y}"
@@ -44,7 +44,7 @@ def single_click_on_positions():
 
 def check_color_and_click(x3, y3, x4, y4):
     current_color = pyautogui.pixel(x3, y3)
-    if current_color == (240, 240, 240):  # 【修改】
+    if current_color == (89,184,126):  # 【修改】
         # print(f"颜色变化！当前颜色: {current_color}")
         pyautogui.click(x=x4, y=y4)
     else:
@@ -59,37 +59,37 @@ def toggle_get_position():
         get_mouse_position()
 
 
-position_button = tk.Button(root, text="获取鼠标位置", command=toggle_get_position)
+position_button = tk.Button(root, text="获取鼠标坐标与颜色", command=toggle_get_position)
 position_button.pack()
 
-position_label = tk.Label(root, text="当前鼠标位置：")
+position_label = tk.Label(root, text="当前鼠标坐标与颜色：")
 position_label.pack()
 
-position1_label = tk.Label(root, text="坐标1（软件a的开始按钮）：")
+position1_label = tk.Label(root, text="开始坐标1（click）：")
 position1_label.pack()
 
 position1_entry = tk.Entry(root)
 position1_entry.pack()
 
-position2_label = tk.Label(root, text="坐标2（软件b的开始按钮）：")
+position2_label = tk.Label(root, text="开始坐标2（click）：")
 position2_label.pack()
 
 position2_entry = tk.Entry(root)
 position2_entry.pack()
 
-position3_label = tk.Label(root, text="坐标3（软件b的结束按钮）：")
+position3_label = tk.Label(root, text="结束坐标1（监控）：")
 position3_label.pack()
 
 position3_entry = tk.Entry(root)
 position3_entry.pack()
 
-position4_label = tk.Label(root, text="坐标4（软件a的结束按钮）：")
+position4_label = tk.Label(root, text="结束坐标2（click）：")
 position4_label.pack()
 
 position4_entry = tk.Entry(root)
 position4_entry.pack()
 
-click_button = tk.Button(root, text="单击屏幕坐标", command=single_click_on_positions)
+click_button = tk.Button(root, text="开始执行逻辑", command=single_click_on_positions)
 click_button.pack()
 
 root.mainloop()  # Tkinter中的一个函数，它是一个事件循环，用于更新GUI的驱动程序

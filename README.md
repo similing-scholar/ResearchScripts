@@ -14,14 +14,20 @@ tips：每个代码都有详细的注释，记录我的学习与思考过程。
 - `Image_Data_Extraction.py` opencv提取文献图片中的曲线数据。
 - `Image_Data_Extraction_Heatmap.py` opencv提取文献图片中的热力图数据。
 - `image_texture_features.py` skimage提取图片特征。
-- ![曲线数据提取](../readme/Image_Data_Extraction.png "曲线数据提取示意图")
-- ![曲线数据提取](../readme/DataExtraction_curve.png "曲线数据提取算法流程图")
-- ![热力图数据提取](../readme/DataExtraction_heatmap.png "热力图数据提取算法流程图")
-- 
+<table>
+  <tr>
+    <td><img src="./readme/Image_Data_Extraction.png" alt="曲线数据提取示意图" /></td>
+    <td><img src="./readme/DataExtraction_curve.png " alt="曲线数据提取算法流程图" /></td>
+    <td><img src="./readme/DataExtraction_heatmap.png" alt="热力图数据提取算法流程图" /></td>
+  </tr>
+</table>
+
 ## Event
 - `Click_GUI.py` tkinter可视化窗口调用鼠标同时点击两个软件的开始按钮，并同时结束。
 - `files_copy.py`os将根目录文件夹的子文件夹下的所有指定格式文件复制到新的文件夹中（建立对应的子文件夹）。
 - `files_remove.py`os将根目录文件夹的子文件夹下的所有指定格式文件删除。
+
+<img src="./readme/Click_GUIv2.png" alt="联用脚本GUI" style="width:50%; height:auto;" />
 
 ## Computation
 - `img_correlation.py` 图像相邻像素相关性计算。

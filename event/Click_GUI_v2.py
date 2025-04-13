@@ -7,7 +7,7 @@ import pyperclip
 class AutomationApp:
     def __init__(self, root):
         self.root = root
-        self.root.title("软件联用脚本v1--习武的书生")
+        self.root.title("软件联用脚本v2--pengjia")
 
         self.get_position_flag = False  # 用于控制是否继续获取鼠标位置的标志
         self.get_position_id = None  # 用于存储get_mouse_position的任务id
